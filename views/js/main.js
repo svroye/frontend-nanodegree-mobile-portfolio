@@ -523,6 +523,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //reduced number of pizzas being made
   var numberOfPizzas = screen.height/s * cols;
+  var movingPizzasDiv = document.querySelector("#movingPizzas1");
   for (var i = 0; i < numberOfPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
@@ -532,7 +533,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //elem.basicLeft = (i % cols) * s ;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     elem.style.left =(i % cols) * s + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    movingPizzasDiv.appendChild(elem);
   }
   //items declared after creation and length measured
   items = document.querySelectorAll('.mover');
