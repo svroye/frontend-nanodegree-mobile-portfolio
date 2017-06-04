@@ -498,7 +498,7 @@ function updatePositions() {
   for (var i = 0; i < itemsLength; i++) {
     var phase = Math.sin(phaseBegin + (i % 5));
     //changed the meft property to use transform
-    var translateValue =375 * phase + 'px';
+    var translateValue =100 * phase + 'px';
     items[i].style.transform = "translateX(" + translateValue + ")";
   }
 
@@ -522,14 +522,16 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
 
 //reduced number of pizzas being made
-  for (var i = 0; i < 30; i++) {
+  var numberOfPizzas = screen.height/s * cols;
+  for (var i = 0; i < numberOfPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    elem.basicLeft = (i % cols) * s ;
+    //elem.basicLeft = (i % cols) * s ;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    elem.style.left =(i % cols) * s + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   //items declared after creation and length measured
